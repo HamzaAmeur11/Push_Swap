@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/04 16:05:53 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/06 02:10:20 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void sort_five(t_stack **s_a, t_stack **s_b);
 //sort big
 void 	rank_stacks(t_stack **stk);
 void	ft_fct(t_stack **s_a, t_stack **s_b);
+t_stack **zero(t_stack **s_b);
 
 #endif

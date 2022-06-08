@@ -6,41 +6,51 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/04 16:15:01 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/08 22:02:50 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+
+t_stack **zero(t_stack **s_b)
+{
+	t_stack *zero;
+	
+	zero = (t_stack *)malloc(sizeof(t_stack));
+	zero->index = 0;
+	zero->next = NULL;
+	zero->x = 0;
+	*s_b = zero;
+	return (s_b);
+}
+
 void	ft_fct(t_stack **s_a, t_stack **s_b)
 {
-	t_stack *p = *s_a;
-	int i = 1;
-	int j = 15;
-
-	if (ft_lstsize(*s_a) > 250)
-		j = 25;
-
-	while (p != NULL && *s_a != NULL)
+	t_stack *first;
+	t_stack *midle;
+	t_stack *ptr = *s_a;
+	int i = 0;
+	int j = 0;
+	
+	s_b = zero(s_b);
+	midle = *s_b;
+	first = *s_b;
+	while(ptr != NULL)
 	{
-		if (p->index < i)
+		if(ptr->index % 2 == 0)
 		{
+			while (ptr->index < first->index)
+			{
+				rotate_b(s_b);
+				first = *s_b;
+				i++;
+			}
 			push_b(s_b, s_a);
-			rotate_b(s_b);
-			i++;
-		}
-		else if (p->index < i + j)
-		{
-			push_b(s_b, s_a);
-			i++;
-		}
-		else
-			rotate_a(s_a);
-		if (ft_lstsize(*s_b) > 1)
-		{
-			if ((*s_b)->index < (*s_b)->next->index)
-				swap_b(s_b);
+			while (i-- >= 0)
+				r_rotate_b(s_b);
+			first = *s_b;
 		}
 	}
-	rank_stacks(s_b);
+	
 }

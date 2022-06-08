@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oprtaion_a.c                                       :+:      :+:    :+:   */
+/*   operation_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:46:17 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/02 23:20:50 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/06 02:29:40 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ void r_rotate_a(t_stack **s_a)
 	t = ptr->next;
 	ptr->next = NULL;
 	ft_lstadd_front(s_a, t);
-	// while (t != NULL)
-	// {
-	// 	printf("T = %ld\n",t->x);
-	// 	t = t->next;
-	// }
 }
 
 t_stack *push_a(t_stack **s_a, t_stack **s_b)
@@ -60,6 +55,7 @@ t_stack *push_a(t_stack **s_a, t_stack **s_b)
 	}
 	temp = (t_stack *)malloc(sizeof(t_stack));
 	temp->x = (*s_b)->x;
+	temp->index = (*s_b)->index;
 	temp->next = NULL;
 	*s_a = ft_lstadd_front(s_a, temp);
 	*s_b = ft_lstdelfirst(*s_b);

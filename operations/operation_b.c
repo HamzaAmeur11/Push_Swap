@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:10:43 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/02 21:22:36 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/06 02:27:37 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void rotate_b(t_stack **s_b)
 {
 	t_stack *ptr;
 	
+	if ((*s_b)->next == NULL)
+		return ;
 	ptr = *s_b;
 	*s_b = ptr->next;
 	ptr->next = NULL;
@@ -55,6 +57,7 @@ t_stack *push_b(t_stack **s_b, t_stack **s_a)
 	}
 	temp = (t_stack *)malloc(sizeof(t_stack));
 	temp->x = (*s_a)->x;
+	temp->index = (*s_a)->index;
 	temp->next = NULL;
 	*s_b = ft_lstadd_front(s_b, temp);
 	*s_a = ft_lstdelfirst(*s_a);

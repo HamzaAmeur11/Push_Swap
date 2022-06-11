@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:46:17 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/06 02:29:40 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/11 18:23:52 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void rotate_a(t_stack **s_a)
 {
 	t_stack *ptr;
 	
+	if ((*s_a)->next == NULL)
+		return ;
 	ptr = *s_a;
 	*s_a = (*s_a)->next;
 	ptr->next = NULL;

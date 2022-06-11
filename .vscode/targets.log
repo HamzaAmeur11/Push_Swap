@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Wed Jun  8 22:55:46 2022
+# Make data base, printed on Sat Jun 11 21:59:49 2022
 
 # Variables
 
@@ -42,7 +43,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cdw80033g2/T/vscode-ipc-b3febe55-a28b-458d-ae3d-d67300dddf7b.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cdw80033g2/T/vscode-ipc-38d9c494-3afd-4190-8ccd-27fdd2c24bdc.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -50,15 +51,13 @@ PATH = /Users/hameur/goinfre/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/s
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-LaunchInstanceID = 5A170CCA-5A7E-4C0B-A004-4AF58253DB19
-# environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.sCmRK4FY1X/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.c7ztLAj10j/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -118,6 +117,7 @@ MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # environment
 TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cdw80033g2/T/
 # automatic
+ 
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/hameur/Library/Application Support/Code/1.67.0-main.sock
@@ -130,7 +130,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.2104
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # makefile (from `Makefile', line 37)
@@ -139,8 +139,6 @@ YELLOW = \033[1;33m
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18DE2:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # environment
@@ -151,8 +149,6 @@ HOMEBREW_NO_AUTO_UPDATE = 1
 PAGER = less
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a7
 # automatic
 ^F = $(notdir $^)
 # default
@@ -164,9 +160,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1564
+VSCODE_PID = 4373
 # variable set hash-table stats:
-# Load=77/1024=8%, Rehash=0, Collisions=4/109=4%
+# Load=74/1024=7%, Rehash=0, Collisions=5/107=5%
 
 # Pattern-specific Variable Values
 
@@ -174,11 +170,11 @@ VSCODE_PID = 1564
 
 # Directories
 
-# . (device 16777225, inode 2937862): 19 files, no impossibilities.
-# sort (device 16777225, inode 2937980): 5 files, no impossibilities so far.
-# stock_args (device 16777225, inode 2937986): 3 files, no impossibilities so far.
-# operations (device 16777225, inode 2937972): 5 files, no impossibilities so far.
-# stacks (device 16777225, inode 2937983): 5 files, no impossibilities so far.
+# . (device 16777225, inode 2978001): 19 files, no impossibilities.
+# sort (device 16777225, inode 2978283): 5 files, no impossibilities so far.
+# stock_args (device 16777225, inode 2978289): 3 files, no impossibilities so far.
+# operations (device 16777225, inode 2978276): 5 files, no impossibilities so far.
+# stacks (device 16777225, inode 2978286): 5 files, no impossibilities so far.
 
 # 37 files, no impossibilities in 5 directories.
 
@@ -196,7 +192,7 @@ VSCODE_PID = 1564
 # Not a target:
 push_swap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-06 02:33:36
+#  Last modified 2022-06-11 19:50:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -205,11 +201,28 @@ push_swap.c:
 all: Push_Swap
 #  Command-line target.
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := Push_Swap
+# automatic
+# | := 
+# automatic
+# < := Push_Swap
+# automatic
+# ^ := Push_Swap
+# automatic
+# ? := Push_Swap
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
 #  commands to execute (from `Makefile', line 41):
 	@echo "${YELLOW}Meking${GREEN} Push_Swap ${WHITE}..."
 	
@@ -217,7 +230,7 @@ all: Push_Swap
 # Not a target:
 operations/operation_b.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-06 02:27:37
+#  Last modified 2022-06-11 20:09:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -226,7 +239,7 @@ operations/operation_b.c:
 # Not a target:
 push_swap.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-06 02:10:20
+#  Last modified 2022-06-11 19:32:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -235,7 +248,7 @@ push_swap.h:
 # Not a target:
 sort/sort.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 20:13:34
+#  Last modified 2022-06-11 17:24:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -250,7 +263,7 @@ sort/sort.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 20:10:12
+#  Last modified 2022-06-11 17:24:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -259,7 +272,7 @@ Makefile:
 # Not a target:
 stacks/stack_new.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 19:48:11
+#  Last modified 2022-06-11 18:33:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -268,7 +281,7 @@ stacks/stack_new.c:
 push_swap_utils.o: push_swap_utils.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `push_swap_utils'
-#  Last modified 2022-06-06 02:10:25
+#  Last modified 2022-06-11 19:32:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -280,28 +293,11 @@ push_swap_utils.o: push_swap_utils.c push_swap.h
 sort/sort_big.o: sort/sort_big.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `sort/sort_big'
-#  Last modified 2022-06-06 02:25:05
+#  Last modified 2022-06-11 20:17:35
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := sort/sort_big.o
-# automatic
-# % := 
-# automatic
-# * := sort/sort_big
-# automatic
-# + := sort/sort_big.c push_swap.h
-# automatic
-# | := 
-# automatic
-# < := sort/sort_big.c
-# automatic
-# ^ := sort/sort_big.c push_swap.h
-# automatic
-# ? := sort/sort_big.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
- 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 47):
 	$(CC) $(FLAGS) -c $< -o $@ 
 	
@@ -309,7 +305,7 @@ sort/sort_big.o: sort/sort_big.c push_swap.h
 stock_args/read_args.o: stock_args/read_args.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `stock_args/read_args'
-#  Last modified 2022-06-06 02:10:25
+#  Last modified 2022-06-11 19:32:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -329,7 +325,7 @@ fclean: clean
 stacks/stack_del.o: stacks/stack_del.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `stacks/stack_del'
-#  Last modified 2022-06-06 02:10:25
+#  Last modified 2022-06-11 20:11:32
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -347,7 +343,7 @@ stacks/stack_del.o: stacks/stack_del.c push_swap.h
 operations/operation_a.o: operations/operation_a.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `operations/operation_a'
-#  Last modified 2022-06-06 02:32:05
+#  Last modified 2022-06-11 19:32:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -372,7 +368,7 @@ clean:
 # Not a target:
 push_swap_utils.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 18:56:32
+#  Last modified 2022-06-11 17:24:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -381,7 +377,7 @@ push_swap_utils.c:
 push_swap.o: push_swap.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `push_swap'
-#  Last modified 2022-06-06 02:33:37
+#  Last modified 2022-06-11 19:53:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -392,11 +388,11 @@ push_swap.o: push_swap.c push_swap.h
 
 Push_Swap: push_swap.o stock_args/read_args.o stacks/stack_new.o stacks/stack_del.o operations/operation_b.o operations/operation_a.o push_swap_utils.o sort/sort.o sort/sort_big.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-06 02:33:37
+#  Last modified 2022-06-11 20:17:35
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 44):
 	$(CC) $(FLAGS) $^ -o $@ 
 	
@@ -404,7 +400,7 @@ Push_Swap: push_swap.o stock_args/read_args.o stacks/stack_new.o stacks/stack_de
 # Not a target:
 sort/sort_big.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-08 22:02:50
+#  Last modified 2022-06-11 20:17:32
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -413,7 +409,7 @@ sort/sort_big.c:
 # Not a target:
 stock_args/read_args.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 19:21:22
+#  Last modified 2022-06-11 17:24:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -422,8 +418,9 @@ stock_args/read_args.c:
 operations/operation_b.o: operations/operation_b.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `operations/operation_b'
-#  Last modified 2022-06-06 02:28:00
+#  Last modified 2022-06-11 20:09:32
 #  File has been updated.
+ 
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -434,7 +431,7 @@ operations/operation_b.o: operations/operation_b.c push_swap.h
 # Not a target:
 stacks/stack_del.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 19:47:24
+#  Last modified 2022-06-11 20:11:30
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -443,7 +440,7 @@ stacks/stack_del.c:
 sort/sort.o: sort/sort.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `sort/sort'
-#  Last modified 2022-06-06 02:10:25
+#  Last modified 2022-06-11 19:32:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -455,7 +452,7 @@ sort/sort.o: sort/sort.c push_swap.h
 stacks/stack_new.o: stacks/stack_new.c push_swap.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `stacks/stack_new'
-#  Last modified 2022-06-06 02:10:25
+#  Last modified 2022-06-11 19:32:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -467,14 +464,14 @@ stacks/stack_new.o: stacks/stack_new.c push_swap.h
 # Not a target:
 operations/operation_a.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-06 02:29:40
+#  Last modified 2022-06-11 18:23:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=0/98=0%
+# Load=27/1024=3%, Rehash=0, Collisions=0/99=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -486,6 +483,6 @@ operations/operation_a.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jun  8 22:55:46 2022
+# Finished Make data base on Sat Jun 11 21:59:49 2022
 
  

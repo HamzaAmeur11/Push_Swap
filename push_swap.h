@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/06 02:10:20 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:32:04 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_stack	*ft_lstnew(int	content);
 t_stack *ft_lstlast(t_stack *lst);
 t_stack *ft_lstdelfirst(t_stack *list);
 t_stack *ft_lstadd_front(t_stack **lst, t_stack *t_new);
-void ft_lstadd_back(t_stack **lst, t_stack *t_new);
+t_stack **ft_lstadd_back(t_stack **lst, t_stack *t_new);
 int		ft_lstsize(t_stack *lst);
 void ft_lstdelone(t_stack *lst);
 // ^^ passer list li 9bl mn li ba4i tms7
@@ -72,5 +72,7 @@ void sort_five(t_stack **s_a, t_stack **s_b);
 void 	rank_stacks(t_stack **stk);
 void	ft_fct(t_stack **s_a, t_stack **s_b);
 t_stack **zero(t_stack **s_b);
+t_stack **push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
+t_stack **push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:10:43 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/06 02:27:37 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/11 20:09:16 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void rotate_b(t_stack **s_b)
 	if ((*s_b)->next == NULL)
 		return ;
 	ptr = *s_b;
-	*s_b = ptr->next;
+	*s_b = (*s_b)->next;
 	ptr->next = NULL;
-	ft_lstadd_back(s_b, ptr);
+	s_b = ft_lstadd_back(s_b, ptr);
 }
 
 void r_rotate_b(t_stack **s_b)
@@ -42,7 +42,7 @@ void r_rotate_b(t_stack **s_b)
 	while (ptr->next->next != NULL)
 		ptr = ptr->next;
 	ft_lstadd_front(s_b, ptr->next);
-	ft_lstdelone(ptr->next);
+	ft_lstdelone(ptr);
 	ptr->next = NULL;
 }
 

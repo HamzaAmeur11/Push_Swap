@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:15:37 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/03 19:47:24 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/11 20:11:30 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void ft_lstdelone(t_stack *lst)
 	ptr = lst;
 	lst = lst->next;
 	ptr->next = NULL;
-	free(ptr);
 }
 
 t_stack *ft_lstdelfirst(t_stack *list)

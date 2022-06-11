@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:15:37 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/03 19:48:11 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/11 18:33:28 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,19 @@ t_stack *ft_lstlast(t_stack *lst)
 	return (lst);
 }
 
-void ft_lstadd_back(t_stack **lst, t_stack *t_new)
+t_stack **ft_lstadd_back(t_stack **lst, t_stack *t_new)
 {
 	t_stack *t;
 
 	if (!(*lst))
 	{
 		*lst = t_new;
-		return ;
+		return(lst);
 	}
 	t = ft_lstlast(*lst);
 	t->next = t_new;
 	t_new->next = NULL;
+	return (lst);
 }
 
 int ft_lstsize(t_stack *lst)

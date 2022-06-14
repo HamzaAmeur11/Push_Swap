@@ -30,24 +30,28 @@ t_stack **zero(t_stack **s_b)
 void push_up(t_stack **s_b, t_stack **s_a, t_stack **first)
 {
 	t_stack *temp;
+	t_stack *zr;
 	int i;
 	
-			i = 0;
-			temp = *s_b;
-			if ((*s_a)->index == 0)
-			{
-				(*first)->x = (*s_a)->x;
-				ft_lstdelfirst(*s_a);
-			}
-			while ((*s_a)->index < (*s_b)->index && (*s_b)->index != 1)
-			{
-				rotate_b(s_b);
-				i++;
-			}
-			push_b(s_b, s_a);
-			while (i-- > 0)
-				r_rotate_b(s_b);
-			first = s_b;
+	i = 0;
+	temp = *s_b;
+	zr = *s_b;
+	if ((*s_a)->index == 0)
+	{
+		while (zr->index != 0)
+			zr = zr->next;
+		zr->x = (*s_a)->x;
+		*s_a = ft_lstdelfirst(*s_a);
+	}
+	while ((*s_a)->index < (*s_b)->index && (*s_b)->index != 0)
+	{
+		rotate_b(s_b);
+		i++;
+	}
+	push_b(s_b, s_a);
+	while (i-- > 0)
+		r_rotate_b(s_b);
+	first = s_b;
 	}
 
 
@@ -57,30 +61,30 @@ void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle)
 	int j;
 	t_stack *temp;
 
-			i = 0;
-			j = 0;
-			temp = *midle;
-			if ((*s_a)->index == 1)
-			{
-				(*midle)->x = (*s_a)->x;
-				*s_a = ft_lstdelfirst(*s_a);
-			}
-			while (temp != NULL)
-			{
-				if ((*s_a)->index < temp->index)
-					i++;
-				temp = temp->next;
-			}
-			j = i + 1;
-			while (i-- > 0)
-				r_rotate_b(s_b);
-			*s_b = push_b(s_b, s_a);
-			while (j-- > 0)
-				rotate_b(s_b);
+	i = 0;
+	j = 0;
+	temp = *midle;
+	if ((*s_a)->index == 1)
+	{
+		(*midle)->x = (*s_a)->x;
+		*s_a = ft_lstdelfirst(*s_a);
+	}
+	while (temp != NULL)
+	{
+		if ((*s_a)->index < temp->index)
+			i++;
+			temp = temp->next;
+	}
+	j = i + 1;
+	while (i-- > 0)
+		r_rotate_b(s_b);
+	*s_b = push_b(s_b, s_a);
+	while (j-- > 0)
+		rotate_b(s_b);
 }
 
 
-void	ft_fct(t_stack **s_a, t_stack **s_b)
+void	divise_stack(t_stack **s_a, t_stack **s_b)
 {
 	t_stack *first;
 	t_stack *midle;

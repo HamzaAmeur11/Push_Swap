@@ -70,7 +70,7 @@ void sort_five(t_stack **s_a, t_stack **s_b);
 
 //sort big
 void 	rank_stacks(t_stack **stk);
-void	ft_fct(t_stack **s_a, t_stack **s_b);
+void	divise_stack(t_stack **s_a, t_stack **s_b);
 t_stack **zero(t_stack **s_b);
 void push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
 void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);

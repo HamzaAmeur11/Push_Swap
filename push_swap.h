@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/11 19:32:04 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/14 04:50:47 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void sort_five(t_stack **s_a, t_stack **s_b);
 void 	rank_stacks(t_stack **stk);
 void	ft_fct(t_stack **s_a, t_stack **s_b);
 t_stack **zero(t_stack **s_b);
-t_stack **push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
-t_stack **push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
+void push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
+void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
 
 #endif

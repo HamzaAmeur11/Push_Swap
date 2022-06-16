@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:05:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/03 19:21:22 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:34:47 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ t_stack *check_str(char *str, t_stack *list)
 				list = fct(list, s);
 			}
 			else if (str[i] == 0)
-				return (s[j] = 0, fct(list, s));
+				return (s[j] = 0,free(s) , fct(list, s));
 		}
 		else
 			ft_error(1, s);

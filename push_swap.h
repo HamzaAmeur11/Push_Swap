@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/14 04:50:47 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:34:28 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
 void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
 void ft_find(t_stack **s_b, t_stack **s_a, int size, int index);
 void remplisage_a(t_stack **s_a, t_stack **s_b);
+
 
 #endif

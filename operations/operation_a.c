@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:46:17 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/11 18:23:52 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:32:37 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ t_stack *push_a(t_stack **s_a, t_stack **s_b)
 		printf("push_a :: stack_b empty");
 		exit(1);
 	}
-	temp = (t_stack *)malloc(sizeof(t_stack));
-	temp->x = (*s_b)->x;
-	temp->index = (*s_b)->index;
-	temp->next = NULL;
+	// temp = (t_stack *)malloc(sizeof(t_stack));
+	// temp->x = (*s_b)->x;
+	// temp->index = (*s_b)->index;
+	// temp->next = NULL;
+	temp = (*s_b);
+	(*s_b) = (*s_b)->next;
 	*s_a = ft_lstadd_front(s_a, temp);
-	*s_b = ft_lstdelfirst(*s_b);
+	// *s_b = ft_lstdelfirst(*s_b);
 	printf("pa\n");
 	return (*s_a);
 }

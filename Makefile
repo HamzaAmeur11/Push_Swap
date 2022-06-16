@@ -6,7 +6,7 @@
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 01:51:41 by hameur            #+#    #+#              #
-#    Updated: 2022/06/03 20:10:12 by hameur           ###   ########.fr        #
+#    Updated: 2022/06/16 18:25:42 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ WHITE= \033[0;37m
 all: $(NAME)
 	@echo "${YELLOW}Meking${GREEN} Push_Swap ${WHITE}..."
 	
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $^ -o $@ 
+$(NAME): $(SRC)
+	$(CC) $(FLAGS) $^ -o $@ -g
 
 %.o : %.c push_swap.h
 	$(CC) $(FLAGS) -c $< -o $@ 

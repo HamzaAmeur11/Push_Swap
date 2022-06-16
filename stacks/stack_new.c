@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:15:37 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/11 18:33:28 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:13:30 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_stack *ft_lstadd_front(t_stack **lst, t_stack *t_new)
 	if (!lst || !t_new)
 		return (NULL);
 	if ((*lst) == NULL)
-		return (ft_lstnew(t_new->x));
+		return (t_new);
 	t_new->next = *lst;
 	*lst = t_new;
 	return (*lst);

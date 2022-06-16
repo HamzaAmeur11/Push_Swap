@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/14 04:52:50 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:52:13 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 {
 	t_stack *first;
 	t_stack *midle;
+	t_stack *temp;
 	int i = 0;
 	int j = 0;
 
@@ -31,7 +32,9 @@ void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 		midle = midle->next;
 		i++;
 	}
-	j = size - i;
+	temp = midle;
+	while (midle->index == index && temp!= NULL && j++ >= 0)
+		temp = temp->next;
 	while (first->index == index && i-- > 0)
 		rotate_a(s_a);
 	while (midle->index == index && j-- > 0)
@@ -104,6 +107,9 @@ void	divise_stack(t_stack **s_a, t_stack **s_b)
 	s_b = zero(s_b, s_a);
 	first = *s_b;
 	midle = (*s_b)->next;
+	printf("divise stack : first = %ld && midle = %ld\n",first->x, midle->x);
+	printf("tst\n");
+	sleep(5);
 	while (*s_a != NULL)
 	{
 		if ((*s_a)->index % 2 == 0)

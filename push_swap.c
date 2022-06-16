@@ -12,22 +12,6 @@
 
 #include "push_swap.h"
 
-void remplisage_a(t_stack **s_a, t_stack **s_b)
-{
-	t_stack *last;
-
-	if (*s_b == NULL)
-		exit(1);
-	last = ft_lstlast(*s_b);
-	while (*s_b != NULL)
-	{
-		if (last->index > (*s_b)->index)
-			r_rotate_b(s_b);
-		push_a(s_a, s_b);
-		last = ft_lstlast(*s_b);
-	}
-}
-
 int main(int ac, char **av)
 {
 	t_stack *s_aa;
@@ -44,7 +28,7 @@ int main(int ac, char **av)
 	t_stack *tst = s_aa;
 	while (tst != NULL)
 	{
-		printf ("| %ld | == %d\n",tst->x, tst->index);
+		printf ("| %ld |\n",tst->x);
 		tst = tst->next;
 	}
 }

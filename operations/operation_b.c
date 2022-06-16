@@ -19,6 +19,7 @@ void swap_b(t_stack **stack_b)
 	temp = (*stack_b)->x;
 	(*stack_b)->x = (*stack_b)->next->x;
 	(*stack_b)->next->x = temp;
+	printf("sb\n");
 }
 
 
@@ -32,6 +33,7 @@ void rotate_b(t_stack **s_b)
 	*s_b = (*s_b)->next;
 	ptr->next = NULL;
 	s_b = ft_lstadd_back(s_b, ptr);
+	printf("rb\n");
 }
 
 void r_rotate_b(t_stack **s_b)
@@ -44,6 +46,7 @@ void r_rotate_b(t_stack **s_b)
 	ft_lstadd_front(s_b, ptr->next);
 	ft_lstdelone(ptr);
 	ptr->next = NULL;
+	printf("rrb\n");
 }
 
 t_stack *push_b(t_stack **s_b, t_stack **s_a)
@@ -61,5 +64,6 @@ t_stack *push_b(t_stack **s_b, t_stack **s_a)
 	temp->next = NULL;
 	*s_b = ft_lstadd_front(s_b, temp);
 	*s_a = ft_lstdelfirst(*s_a);
+	printf("pb\n");
 	return (*s_b);
 }

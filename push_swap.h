@@ -67,12 +67,15 @@ void sort_two(t_stack **s_a);
 void sort_three(t_stack **s_a);
 void sort_four(t_stack **s_a, t_stack **s_b);
 void sort_five(t_stack **s_a, t_stack **s_b);
+void ft_sort(t_stack **s_a, t_stack **s_b, int i);
 
 //sort big
 void 	rank_stacks(t_stack **stk);
 void	divise_stack(t_stack **s_a, t_stack **s_b);
-t_stack **zero(t_stack **s_b);
+t_stack **zero(t_stack **s_b, t_stack **s_a);
 void push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
 void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
+void ft_find(t_stack **s_b, t_stack **s_a, int size, int index);
+void remplisage_a(t_stack **s_a, t_stack **s_b);
 
 #endif

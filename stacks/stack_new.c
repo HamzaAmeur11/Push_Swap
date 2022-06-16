@@ -69,7 +69,7 @@ int ft_lstsize(t_stack *lst)
 
 	i = 0;
 	ptr = lst;
-	while (ptr)
+	while (ptr != NULL)
 	{
 		ptr =ptr->next;
 		i++; 

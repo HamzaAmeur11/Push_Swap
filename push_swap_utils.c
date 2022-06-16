@@ -39,11 +39,34 @@ int min_stack(t_stack *s_a)
 	return (ft_lstsize(s_a) - ft_lstsize(temp) + 1);	
 }
 
+void remplisage_a(t_stack **s_a, t_stack **s_b)
+{
+	t_stack *last;
 
+	if (*s_b == NULL)
+		exit(1);
+	last = ft_lstlast(*s_b);
+	while (*s_b != NULL)
+	{
+		if (last->index > (*s_b)->index)
+			r_rotate_b(s_b);
+		push_a(s_a, s_b);
+		last = ft_lstlast(*s_b);
+	}
+}
 
-
-
-
+void ft_sort(t_stack **s_a, t_stack **s_b, int i)
+{
+	if (i == 2)
+		sort_two(s_a);
+	else if (i == 3)
+		sort_three(s_a);
+	else if (i == 4)
+		sort_four(s_a, s_b);
+	else if (i == 5)
+		sort_five(s_a, s_b);
+	exit(0);
+}
 
 
 
@@ -76,3 +99,5 @@ void rank_stacks(t_stack **stk)
 			temp = *stk;
 	}
 }
+
+

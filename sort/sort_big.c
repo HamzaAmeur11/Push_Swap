@@ -12,37 +12,54 @@
 
 #include "../push_swap.h"
 
-
-t_stack **zero(t_stack **s_b)
+void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 {
-	t_stack *ptr;
-	
-	ptr = (t_stack *)malloc(sizeof(t_stack));
-	ptr = ft_lstnew(0);
-	ptr->index = 0;
-	ft_lstadd_back(&ptr, ft_lstnew(1));
-	ptr->next->index = 1;
-	ptr->next->next = NULL;
-	*s_b = ptr;
+	t_stack *first;
+	t_stack *midle;
+	int i = 0;
+	int j = 0;
+
+	first = *s_a;
+	midle = *s_a;
+	while (i++ < (size / 2) && midle != NULL)
+		midle = midle->next;
+	i = 0;
+	while (first->index != index && midle->index != index 
+		&& midle != NULL)
+	{
+		first = first->next;
+		midle = midle->next;
+		i++;
+	}
+	j = size - i;
+	while (first->index == index && i-- > 0)
+		rotate_a(s_a);
+	while (midle->index == index && j-- > 0)
+		r_rotate_a(s_a);
+	push_b(s_b, s_a);
+}
+
+t_stack **zero(t_stack **s_b, t_stack **s_a)
+{
+	int i;
+
+	i = 0;
+	i = ft_lstsize(*s_a);
+	if (i <= 5)
+		ft_sort(s_a, s_b, i);
+	ft_find(s_b, s_a, i, 0);
+	ft_find(s_b, s_a, i, 1);
+	rotate_b(s_b);
 	return (s_b);
 }
 
 void push_up(t_stack **s_b, t_stack **s_a, t_stack **first)
 {
 	t_stack *temp;
-	t_stack *zr;
 	int i;
 	
 	i = 0;
 	temp = *s_b;
-	zr = *s_b;
-	if ((*s_a)->index == 0)
-	{
-		while (zr->index != 0)
-			zr = zr->next;
-		zr->x = (*s_a)->x;
-		*s_a = ft_lstdelfirst(*s_a);
-	}
 	while ((*s_a)->index < (*s_b)->index && (*s_b)->index != 0)
 	{
 		rotate_b(s_b);
@@ -64,11 +81,6 @@ void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle)
 	i = 0;
 	j = 0;
 	temp = *midle;
-	if ((*s_a)->index == 1)
-	{
-		(*midle)->x = (*s_a)->x;
-		*s_a = ft_lstdelfirst(*s_a);
-	}
 	while (temp != NULL)
 	{
 		if ((*s_a)->index < temp->index)
@@ -89,7 +101,7 @@ void	divise_stack(t_stack **s_a, t_stack **s_b)
 	t_stack *first;
 	t_stack *midle;
 	
-	s_b = zero(s_b);
+	s_b = zero(s_b, s_a);
 	first = *s_b;
 	midle = (*s_b)->next;
 	while (*s_a != NULL)

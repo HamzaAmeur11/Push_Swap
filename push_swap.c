@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:07:12 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 18:44:55 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 22:00:31 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ int main(int ac, char **av)
 	while (av[i])
 		s_aa = check_str(av[i++], s_aa);
 	rank_stacks(&s_aa);
+	t_stack *tst = s_aa;
+	// while (tst != NULL)
+	// {
+	// 	printf("|%ld| -> %d\n  |\n", tst->x, tst->index);
+	// 	tst = tst->next;
+	// }
 	divise_stack(&s_aa, &s_bb);
 	remplisage_a(&s_aa, &s_bb);
 }

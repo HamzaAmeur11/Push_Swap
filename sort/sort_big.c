@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 18:52:13 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/16 23:21:14 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 	t_stack *first;
 	t_stack *midle;
 	t_stack *temp;
-	int i = 0;
+	int i = 1;
 	int j = 0;
 
 	first = *s_a;
@@ -29,6 +29,7 @@ void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 		&& midle != NULL)
 	{
 		first = first->next;
+		printf("first == |%ld|->%d\nmidle == |%ld|->%d\n\n",first->x ,first->index, midle->x, midle->index);
 		midle = midle->next;
 		i++;
 	}
@@ -51,8 +52,15 @@ t_stack **zero(t_stack **s_b, t_stack **s_a)
 	if (i <= 5)
 		ft_sort(s_a, s_b, i);
 	ft_find(s_b, s_a, i, 0);
-	ft_find(s_b, s_a, i, 1);
+	ft_find(s_b, s_a, i - 1, 1);
 	rotate_b(s_b);
+	t_stack *tst = *s_b;
+	while (tst != NULL)
+	{
+		printf("s_b == %ld\n", tst->x);
+		tst = tst->next;
+	} 
+	sleep (3);
 	return (s_b);
 }
 
@@ -105,11 +113,10 @@ void	divise_stack(t_stack **s_a, t_stack **s_b)
 	t_stack *midle;
 	
 	s_b = zero(s_b, s_a);
+	printf("divise stack : first = %d && midle = %d\n",(*s_b)->index, (*s_b)->next->index);
+	sleep(4);
 	first = *s_b;
 	midle = (*s_b)->next;
-	printf("divise stack : first = %ld && midle = %ld\n",first->x, midle->x);
-	printf("tst\n");
-	sleep(5);
 	while (*s_a != NULL)
 	{
 		if ((*s_a)->index % 2 == 0)

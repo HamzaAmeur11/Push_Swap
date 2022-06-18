@@ -21,14 +21,15 @@ int main(int ac, char **av)
 	if (ac == 1)
 		ft_error(1, NULL);
 	while (av[i])
-		s_aa = check_str(av[i++], s_aa);
+		s_aa = ft_remplissage(av[i++], s_aa);
 	rank_stacks(&s_aa);
-	t_stack *tst = s_aa;
-	// while (tst != NULL)
-	// {
-	// 	printf("|%ld| -> %d\n  |\n", tst->x, tst->index);
-	// 	tst = tst->next;
-	// }
+	//valide 
 	divise_stack(&s_aa, &s_bb);
 	remplisage_a(&s_aa, &s_bb);
+	s_bb = s_aa;
+	while (s_bb != NULL)
+	{
+		printf("s_b : |%ld| -> %d\n", s_bb->x, s_bb->index);
+		s_bb = s_bb->next;
+	}
 }

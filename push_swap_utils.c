@@ -72,15 +72,17 @@ void ft_sort(t_stack **s_a, t_stack **s_b, int i)
 
 void rank_stacks(t_stack **stk)
 {
-	t_stack *rank;
+	t_stack	*rank;
 	t_stack	*temp;
 	
 	rank = *stk;
-	temp = (*stk)->next;
+	temp = rank->next;
 	while (rank != NULL)
 	{
 		while (temp != rank)
 		{
+			if (temp == NULL)
+				temp = *stk;
 			if (rank->x < temp->x)
 				temp = temp->next;
 			else if (rank->x > temp->x)
@@ -88,8 +90,6 @@ void rank_stacks(t_stack **stk)
 				rank->index++;	
 				temp = temp->next;
 			}
-			if (temp == NULL)
-				temp = *stk;
 		}
 		if (rank->next == NULL)
 			break ;

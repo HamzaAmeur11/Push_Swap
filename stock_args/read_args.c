@@ -52,7 +52,7 @@ long int	ft_atoi(char *str)
 	return (resultat * signe);
 }
 
-t_stack *fct(t_stack *list, char *str)
+t_stack *initialization(t_stack *list, char *str)
 {
 	t_stack *p_new;
 
@@ -61,48 +61,44 @@ t_stack *fct(t_stack *list, char *str)
 	return (list);
 }
 
-t_stack *check_str(char *str, t_stack *list)
+void check_str(char *str)
 {
 	int i;
-	int j;
-	char *s = (char *)malloc(20);
+
+	i = 0;
+	while (str[i] != 0)
+	{
+		if (str[0] == '-')
+			i++;
+		while (str[i] >= '0'  && str[i] <= '9')
+			i++;
+		if (str[i] != 0)
+			ft_error(1, str);
+	}
+}
+
+t_stack *ft_remplissage(char *str, t_stack *list)
+{
+	int	i;
+	int	j;
+	char	*s;
 
 	i = 0;
 	j = 0;
+	s = (char *)malloc(20);
 	while (str[i] != 0)
 	{
 		while (str[i] == ' ')
-		{
-			if (str[i + 1] == 0)
-				return (list);
 			i++;
-		}
-		if (str[i] == '-')
-		{
-			if (i == 0)
-				s[j++] = str[i++];
-			else if (i >= 1 && str[i + 1] >= '0' 
-				&& str[i + 1] <= '9' && str[i - 1] == ' ')
-				s[j++] = str[i++];
-			else
-				ft_error(1, s);	
-		}
-		else if (str[i] >= '0' && str[i] <= '9')
-		{
+		if (str[i] == 0)
+			break ;
+		while (str[i] && str[i] != ' ')
 			s[j++] = str[i++];
-			if (str[i] == ' ')
-			{
-				s[j] = 0;
-				j = 0;
-				i++;
-				list = fct(list, s);
-			}
-			else if (str[i] == 0)
-				return (s[j] = 0,free(s) , fct(list, s));
-		}
-		else
-			ft_error(1, s);
+		s[j] = '\0';
+		check_str(s);
+		list = initialization(list, s);
+		j = 0;
 	}
-	ft_error(1, s);
-	return (NULL);
-}	
+	free (s);
+	return (list);
+}

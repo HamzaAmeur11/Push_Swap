@@ -64,6 +64,7 @@ t_stack *push_a(t_stack **s_a, t_stack **s_b)
 	// temp->next = NULL;
 	temp = (*s_b);
 	(*s_b) = (*s_b)->next;
+	temp->next = NULL;
 	*s_a = ft_lstadd_front(s_a, temp);
 	// *s_b = ft_lstdelfirst(*s_b);
 	printf("pa\n");

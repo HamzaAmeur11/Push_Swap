@@ -40,8 +40,8 @@ WHITE= \033[0;37m
 all: $(NAME)
 	@echo "${YELLOW}Meking${GREEN} Push_Swap ${WHITE}..."
 	
-$(NAME): $(SRC)
-	$(CC) $(FLAGS) $^ -o $@ -g
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $^ -o $@
 
 %.o : %.c push_swap.h
 	$(CC) $(FLAGS) -c $< -o $@ 

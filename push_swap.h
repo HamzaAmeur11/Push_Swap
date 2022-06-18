@@ -42,8 +42,9 @@ void ft_lstclear(t_stack **lst);
 //ljshv
 long int	ft_atoi(char *str);
 void ft_error(int i, char *str);
-t_stack *fct(t_stack *list, char *str);
-t_stack *check_str(char *str, t_stack *list);
+t_stack *initialization(t_stack *list, char *str);
+void	check_str(char *str);
+t_stack *ft_remplissage(char *str, t_stack *list);
 
 
 //_______________stacks_operations_______________//

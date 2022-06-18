@@ -29,7 +29,6 @@ void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 		&& midle != NULL)
 	{
 		first = first->next;
-		printf("first == |%ld|->%d\nmidle == |%ld|->%d\n\n",first->x ,first->index, midle->x, midle->index);
 		midle = midle->next;
 		i++;
 	}
@@ -41,6 +40,7 @@ void ft_find(t_stack **s_b, t_stack **s_a, int size, int index)
 	while (midle->index == index && j-- > 0)
 		r_rotate_a(s_a);
 	push_b(s_b, s_a);
+	first = *s_a;midle = *s_b;
 }
 
 t_stack **zero(t_stack **s_b, t_stack **s_a)
@@ -54,13 +54,6 @@ t_stack **zero(t_stack **s_b, t_stack **s_a)
 	ft_find(s_b, s_a, i, 0);
 	ft_find(s_b, s_a, i - 1, 1);
 	rotate_b(s_b);
-	t_stack *tst = *s_b;
-	while (tst != NULL)
-	{
-		printf("s_b == %ld\n", tst->x);
-		tst = tst->next;
-	} 
-	sleep (3);
 	return (s_b);
 }
 
@@ -113,8 +106,6 @@ void	divise_stack(t_stack **s_a, t_stack **s_b)
 	t_stack *midle;
 	
 	s_b = zero(s_b, s_a);
-	printf("divise stack : first = %d && midle = %d\n",(*s_b)->index, (*s_b)->next->index);
-	sleep(4);
 	first = *s_b;
 	midle = (*s_b)->next;
 	while (*s_a != NULL)

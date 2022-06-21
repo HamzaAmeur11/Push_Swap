@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:07:12 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 22:00:31 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/18 20:31:25 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int main(int ac, char **av)
 	//valide 
 	divise_stack(&s_aa, &s_bb);
 	remplisage_a(&s_aa, &s_bb);
-	s_bb = s_aa;
-	while (s_bb != NULL)
-	{
-		printf("s_b : |%ld| -> %d\n", s_bb->x, s_bb->index);
-		s_bb = s_bb->next;
-	}
+	// s_bb = s_aa;
+	// while (s_bb != NULL)
+	// {
+	// 	printf("s_b : |%ld| -> %d\n", s_bb->x, s_bb->index);
+	// 	s_bb = s_bb->next;
+	// }
 }

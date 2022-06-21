@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:05:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 18:34:47 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/20 13:52:32 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void ft_error(int i, char *str)
 	if (str != NULL)
 		free(str);
 	if(i == 0)
-		return (printf("daplicate number"), exit(1)); 
+		return (printf("Error\n"), exit(1)); 
 	else if (i == 1)
-		return (printf("error f les argument"), exit(1));
+		return (printf("Error\n"), exit(1));
 	else if (i == 2)
-		return (printf("max ou min int"), exit(1));
+		return (printf("Error\n"), exit(1));
 }
 
 long int	ft_atoi(char *str)
@@ -86,6 +86,8 @@ t_stack *ft_remplissage(char *str, t_stack *list)
 	i = 0;
 	j = 0;
 	s = (char *)malloc(20);
+	if (str[0] == 0)
+		ft_error(1, s);
 	while (str[i] != 0)
 	{
 		while (str[i] == ' ')

@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:55:53 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 18:34:36 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/20 13:45:51 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ void ft_sort(t_stack **s_a, t_stack **s_b, int i)
 	exit(0);
 }
 
+void check_correct(t_stack **stk)
+{
+	t_stack *temp;
+
+	temp = *stk;
+	while (temp->next != NULL)
+	{
+		if (temp->index > temp->next->index)
+			break ;
+		temp = temp->next;
+	}
+}
 
 
 void rank_stacks(t_stack **stk)
@@ -98,6 +110,7 @@ void rank_stacks(t_stack **stk)
 		if (temp == NULL)
 			temp = *stk;
 	}
+	check_correct(stk);
 }
 
 

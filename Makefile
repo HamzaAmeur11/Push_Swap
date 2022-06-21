@@ -6,13 +6,13 @@
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 01:51:41 by hameur            #+#    #+#              #
-#    Updated: 2022/06/16 18:25:42 by hameur           ###   ########.fr        #
+#    Updated: 2022/06/20 13:36:27 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #_________Makefile________________________________
 
-NAME := Push_Swap
+NAME := push_swap
 
 CC := cc
 
@@ -47,7 +47,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -c $< -o $@ 
 	
 clean:
-	@rm -rf Push_Swap
+	@rm -rf $(NAME)
 
 fclean: clean
 	@rm -rf $(OBJ)

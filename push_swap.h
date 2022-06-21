@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 18:34:28 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/20 13:46:07 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void ft_error(int i, char *str);
 t_stack *initialization(t_stack *list, char *str);
 void	check_str(char *str);
 t_stack *ft_remplissage(char *str, t_stack *list);
+void check_correct(t_stack **stk);
 
 
 //_______________stacks_operations_______________//

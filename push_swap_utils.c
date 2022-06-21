@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:55:53 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/20 13:45:51 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/21 18:30:11 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,19 @@ void rank_stacks(t_stack **stk)
 {
 	t_stack	*rank;
 	t_stack	*temp;
+	int i = 0;
+	int size = ft_lstsize(*stk);
 	
 	rank = *stk;
 	temp = rank->next;
 	while (rank != NULL)
 	{
-		while (temp != rank)
+		while (temp != rank && ++i > 0)
 		{
 			if (temp == NULL)
 				temp = *stk;
+			if (rank->x == temp->x && i != size)
+				ft_error(1, NULL);
 			if (rank->x < temp->x)
 				temp = temp->next;
 			else if (rank->x > temp->x)
@@ -102,7 +106,9 @@ void rank_stacks(t_stack **stk)
 				rank->index++;	
 				temp = temp->next;
 			}
+
 		}
+		i = 0;
 		if (rank->next == NULL)
 			break ;
 		rank = rank->next;

@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/21 02:42:47 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/21 17:01:11 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,19 +121,3 @@ void	divise_stack(t_stack **s_a, t_stack **s_b)
 
 
 
-
-
-void check_stack(t_stack **s_a)
-{
-	t_stack *temp;
-	t_stack *ptr;
-	int i = ft_lstsize(*s_a);
-
-	ptr = *s_a;
-	while (i-- > 0)
-	{
-		
-	}
-
-	
-}

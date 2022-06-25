@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:47:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/03 20:13:34 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 17:52:19 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void sorte_three_II(t_stack **s_a)
 			else if ((*s_a)->x < (*s_a)->next->next->x)
 				return (swap_a(s_a));
 			else if ((*s_a)->x == (*s_a)->next->next->x)
-			ft_error(0, NULL);	
+			ft_error(NULL);	
 		}
 		else if ((*s_a)->next->x == (*s_a)->next->next->x)
-			ft_error(0, NULL);
+			ft_error(NULL);
 	}
 	else if ((*s_a)->x == (*s_a)->next->x)
-		ft_error(0, NULL);
+		ft_error(NULL);
 }
 
 
@@ -67,10 +67,10 @@ void sort_three(t_stack **s_a)
 			else if((*s_a)->x < (*s_a)->next->next->x)
 				return(swap_a(s_a), rotate_a(s_a));
 			else if ((*s_a)->x == (*s_a)->next->next->x)
-				ft_error(0, NULL);
+				ft_error(NULL);
 		}
 		else if ((*s_a)->next->x == (*s_a)->next->next->x)
-			ft_error(0, NULL);
+			ft_error(NULL);
 	}
 	sorte_three_II(s_a);
 }

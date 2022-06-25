@@ -6,23 +6,12 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:05:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/21 18:58:36 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 18:21:34 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_error(int i, char *str)
-{
-	if (str != NULL)
-		free(str);
-	if(i == 0)
-		return (printf("Error\n"), exit(1)); 
-	else if (i == 1)
-		return (printf("Error\n"), exit(1));
-	else if (i == 2)
-		return (printf("Error\n"), exit(1));
-}
 
 long int	ft_atoi(char *str)
 {
@@ -48,7 +37,7 @@ long int	ft_atoi(char *str)
 	}
 	if (resultat * signe > 2147483647 
 		|| resultat * signe < -2147483648)
-			ft_error(2, NULL);
+			ft_error(NULL);
 	return (resultat * signe);
 }
 
@@ -61,6 +50,7 @@ t_stack *initialization(t_stack *list, char *str)
 	return (list);
 }
 
+
 void check_str(char *str)
 {
 	int i;
@@ -70,10 +60,12 @@ void check_str(char *str)
 	{
 		if (str[0] == '-')
 			i++;
+		if(is_digit(str[i]) == 0)
+			ft_error(str);
 		while (str[i] >= '0'  && str[i] <= '9')
 			i++;
 		if (str[i] != 0)
-			ft_error(1, str);
+			ft_error(str);
 	}
 }
 
@@ -87,7 +79,7 @@ t_stack *ft_remplissage(char *str, t_stack *list)
 	j = 0;
 	s = (char *)malloc(20);
 	if (str[0] == 0)
-		ft_error(1, s);
+		ft_error(s);
 	while (str[i] != 0)
 	{
 		while (str[i] == ' ')
@@ -101,6 +93,5 @@ t_stack *ft_remplissage(char *str, t_stack *list)
 		list = initialization(list, s);
 		j = 0;
 	}
-	free (s);
-	return (list);
+	return (free (s), list);
 }

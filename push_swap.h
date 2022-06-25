@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 03:05:18 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 18:23:14 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ void ft_lstclear(t_stack **lst);
 
 //ljshv
 long int	ft_atoi(char *str);
-void ft_error(int i, char *str);
+void ft_error(char *str);
 t_stack *initialization(t_stack *list, char *str);
 void	check_str(char *str);
 t_stack *ft_remplissage(char *str, t_stack *list);
 void check_correct(t_stack **stk);
-
+void	clr_lst(t_stack **root, t_stack *node);
+int	is_digit(char str);
+void checker_sortin(t_stack **s_a);
 
 //_______________stacks_operations_______________//
 t_stack *push_b(t_stack **s_b, t_stack **s_a);
@@ -72,14 +74,13 @@ void sort_five(t_stack **s_a, t_stack **s_b);
 void ft_sort(t_stack **s_a, t_stack **s_b, int i);
 
 //sort big
-void 	rank_stacks(t_stack **stk, int size);
-void	divise_stack(t_stack **s_a, t_stack **s_b);
-t_stack **zero(t_stack **s_b, t_stack **s_a);
-void push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
-void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
-void ft_find(t_stack **s_b, t_stack **s_a, int size, int index);
+t_stack **check_stack(t_stack **s_a, int size);
+void del_pos(t_stack **ref, int index);
+void remplisage_b(t_stack **s_a, t_stack **s_b, t_stack **ref, int size);
+void rank_stacks(t_stack **stk, int size);
 void remplisage_a(t_stack **s_a, t_stack **s_b, int size);
 void push_int(t_stack **s_a, t_stack **s_b, int push, int size);
-
+void remplisage_b_2(t_stack **s_a, t_stack **s_b, t_stack **ref,t_stack *big, t_stack *small, int size);
+int max_int(t_stack *stk);
 
 #endif

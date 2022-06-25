@@ -6,7 +6,7 @@
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 01:51:41 by hameur            #+#    #+#              #
-#    Updated: 2022/06/21 19:03:14 by hameur           ###   ########.fr        #
+#    Updated: 2022/06/25 17:46:09 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC :=	push_swap.c \
 		operations/operation_b.c \
 		operations/operation_a.c \
 		push_swap_utils.c \
+		push_swap_utils2.c \
 		sort/sort.c \
 		sort/sort_big.c \
 

@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/21 18:14:49 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 03:05:18 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,14 @@ void sort_five(t_stack **s_a, t_stack **s_b);
 void ft_sort(t_stack **s_a, t_stack **s_b, int i);
 
 //sort big
-void 	rank_stacks(t_stack **stk);
+void 	rank_stacks(t_stack **stk, int size);
 void	divise_stack(t_stack **s_a, t_stack **s_b);
 t_stack **zero(t_stack **s_b, t_stack **s_a);
 void push_up(t_stack **s_b, t_stack **s_a, t_stack **first);
 void push_down(t_stack **s_b, t_stack **s_a, t_stack **midle);
 void ft_find(t_stack **s_b, t_stack **s_a, int size, int index);
-void remplisage_a(t_stack **s_a, t_stack **s_b);
+void remplisage_a(t_stack **s_a, t_stack **s_b, int size);
+void push_int(t_stack **s_a, t_stack **s_b, int push, int size);
 
 
 #endif

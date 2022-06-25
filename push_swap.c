@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:07:12 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/21 19:10:02 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 03:20:13 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_stack **check_stack(t_stack **s_a)
 	int i = ft_lstsize(*s_a);
 	t_stack *ptr = *s_a;
 	t_stack **rtn;
-	t_stack *temp2 = *s_a;
 	t_stack *temp;
 
 	temp = (t_stack *)malloc(sizeof(t_stack));
@@ -47,7 +46,7 @@ void del_pos(t_stack **ref, int index, int size)
 {
 	t_stack *current = *ref;
 	t_stack *previous = *ref;
-
+	
 	if (index == (*ref)->index)
 	{
 		*ref = (*ref)->next;
@@ -73,21 +72,17 @@ void fct(t_stack **s_a, t_stack **s_b, t_stack **ref, int size)
 	int j;
 	t_stack *small;
 	t_stack *big;
-	t_stack *temp;
 
 	while (*s_a != NULL && *ref != NULL)
 	{
 		small = *ref;
 		big = *ref;
 		j = -1;
-		t_stack *tst = *ref;
-
 		if (i == 1)
 		{
 			free(*ref);
 			free(ref);
 			*s_b = push_b(s_b, s_a);
-			rotate_b(s_b);
 			break;
 		}
 		while (++j <= i / 3 && big != NULL)
@@ -132,13 +127,12 @@ int main(int ac, char **av)
 	t_stack **ref = check_stack(&s_a);
 	fct(&s_a, &s_b, ref, size);
 	remplisage_a(&s_a, &s_b, size);
-
-	t_stack *tst = s_a;
-	while (tst != NULL)
-	{
-		printf("s_b == %ld -> |%d|\n", tst->x, tst->index);
-		tst = tst->next;
-	}
+	// t_stack *tst = s_a;
+	// while (tst != NULL)
+	// {
+	// 	printf("s_a == %ld -> |%d|\n", tst->x, tst->index);
+	// 	tst = tst->next;
+	// }
 	// chaech_repete()
 	// divise_stack(&s_aa, &s_bb);
 }

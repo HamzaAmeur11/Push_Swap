@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:55:53 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/21 18:30:11 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 03:12:32 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,52 @@ int min_stack(t_stack *s_a)
 	}
 	return (ft_lstsize(s_a) - ft_lstsize(temp) + 1);	
 }
-
-void remplisage_a(t_stack **s_a, t_stack **s_b)
+int max_int(t_stack *stk)
 {
-	t_stack *last;
-
-	if (*s_b == NULL)
-		exit(1);
-	last = ft_lstlast(*s_b);
-	while (*s_b != NULL)
+	t_stack *temp = stk;
+	int i = 0;
+	while (temp != NULL)
 	{
-		if (last->index > (*s_b)->index)
+		if (i < temp->index)
+			i  = temp->index;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+
+void push_int(t_stack **s_a, t_stack **s_b, int push, int size)
+{
+	t_stack *first;
+	int i = -1;
+	
+	first = *s_b;
+	while (++i >= 0 && first->index != push)
+		first = first->next;
+	int j = 0;
+	if (i <= size / 2)
+	{
+		while (j++ < i)
+			rotate_b(s_b);
+		push_a(s_a, s_b);
+	}
+	else if (i > size / 2)
+	{
+		while (first != NULL && j++ >= 0)
+			first = first->next;
+		i = j;
+		while (j-- > 0)
 			r_rotate_b(s_b);
 		push_a(s_a, s_b);
-		last = ft_lstlast(*s_b);
 	}
+}
+void remplisage_a(t_stack **s_a, t_stack **s_b, int size)
+{
+	int max = max_int(*s_b);
+	
+
+	while (max >= 0)
+		push_int(s_a, s_b,max--, size);
 }
 
 void ft_sort(t_stack **s_a, t_stack **s_b, int i)
@@ -82,12 +113,11 @@ void check_correct(t_stack **stk)
 }
 
 
-void rank_stacks(t_stack **stk)
+void rank_stacks(t_stack **stk, int size)
 {
 	t_stack	*rank;
 	t_stack	*temp;
 	int i = 0;
-	int size = ft_lstsize(*stk);
 	
 	rank = *stk;
 	temp = rank->next;

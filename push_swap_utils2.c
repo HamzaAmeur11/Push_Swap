@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:43:47 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 18:22:31 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 20:41:16 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,36 @@ int max_int(t_stack *stk)
 		temp = temp->next;
 	}
 	return (i);
+}
+
+
+
+void ft_sort(t_stack **s_a, t_stack **s_b, int i)
+{
+	if (i == 2)
+		sort_two(s_a);
+	else if (i == 3)
+		sort_three(s_a);
+	else if (i == 4)
+		sort_four(s_a, s_b);
+	else if (i == 5)
+		sort_five(s_a, s_b);
+	exit(0);
+}
+
+int checker_sortin(t_stack **s_a, int size)
+{
+	t_stack *temp;
+	int i = 0;
+
+	temp = *s_a;
+	while (temp != NULL && temp->next != NULL && i++ >= 0)
+	{
+		if (temp->index > temp->next->index)
+			break ;
+			temp = temp->next;
+	}
+	if (temp->next == NULL && i == size)
+		return(0);
+	return (1);
 }

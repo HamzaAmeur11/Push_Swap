@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 18:23:14 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 20:29:13 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_stack *ft_remplissage(char *str, t_stack *list);
 void check_correct(t_stack **stk);
 void	clr_lst(t_stack **root, t_stack *node);
 int	is_digit(char str);
-void checker_sortin(t_stack **s_a);
+int checker_sortin(t_stack **s_a, int size);
 
 //_______________stacks_operations_______________//
 t_stack *push_b(t_stack **s_b, t_stack **s_a);

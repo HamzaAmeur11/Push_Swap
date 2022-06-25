@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:55:53 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 03:12:32 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 04:47:41 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void remplisage_a(t_stack **s_a, t_stack **s_b, int size)
 	
 
 	while (max >= 0)
-		push_int(s_a, s_b,max--, size);
+		push_int(s_a, s_b,max--, size--);
 }
 
 void ft_sort(t_stack **s_a, t_stack **s_b, int i)

@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:07:12 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 03:20:13 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/25 04:49:16 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,10 @@ void fct(t_stack **s_a, t_stack **s_b, t_stack **ref, int size)
 			*s_b = push_b(s_b, s_a);
 			break;
 		}
-		while (++j <= i / 3 && big != NULL)
+		while (++j <= i / 5 && big != NULL)
 			big = big->next;
 		j = -1;
-		while (++j <= (i / 3) / 2 && small != NULL)
+		while (++j <= (i / 5) / 2 && small != NULL)
 			small = small->next;
 		if ((*s_a)->index > big->index && (*s_a)->index > small->index)
 			rotate_a(s_a);

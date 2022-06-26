@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:07:12 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 22:53:43 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:47:51 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int ac, char **av)
 {
 	t_stack	*s_a;
 	t_stack	*s_b;
-	int		*ref;
 	int		size;
 	int		i;
 
@@ -33,9 +32,7 @@ int	main(int ac, char **av)
 		ft_sort(&s_a, &s_b, size);
 	if (checker_sortin(&s_a) == 0)
 		exit (0);
-	ref = reference(size);
-	remplisage_b(&s_a, &s_b, ref, size);
-	free(ref);
+	remplisage_b(&s_a, &s_b, size);
 	remplisage_a(&s_a, &s_b, size);
 	clr_lst(&s_a, s_a);
 }

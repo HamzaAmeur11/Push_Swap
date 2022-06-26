@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 23:13:02 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:45:53 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	check_stack_util(t_stack **temp, long int x, int *j);
 void	remplisage_a(t_stack **s_a, t_stack **s_b, int size);//
 void	p_big_nd_small(int *big, int *small, int *ref, int i);//
 void	push_int(t_stack **s_a, t_stack **s_b, int push, int size);//
-void	remplisage_b(t_stack **s_a, t_stack **s_b, int *ref, int size);//
+void	remplisage_b(t_stack **s_a, t_stack **s_b, int size);//
 int		max_int(t_stack *stk);//
 int		*reference(int size);//
 

@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 21:57:50 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:46:39 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ void	p_big_nd_small(int *big, int *small, int *ref, int i)
 		(*small) = ref[j];
 }
 
-void	remplisage_b(t_stack **s_a, t_stack **s_b, int *ref, int size)
+void	remplisage_b(t_stack **s_a, t_stack **s_b, int size)
 {
-	int	i;
+	int	*ref;
 	int	small;
 	int	big;
 
-	i = size;
-	while (*s_a != NULL && ref[i] != -1 && i > 1)
+	ref = reference(size);
+	while (*s_a != NULL && ref[size] != -1 && size > 1)
 	{
-		p_big_nd_small(&big, &small, ref, i);
-		if (i <= 1)
+		p_big_nd_small(&big, &small, ref, size);
+		if (size <= 1)
 			ft_error(NULL);
 		if ((*s_a)->index > big && (*s_a)->index > small)
 			rotate_a(s_a, 1);
@@ -78,11 +78,11 @@ void	remplisage_b(t_stack **s_a, t_stack **s_b, int *ref, int size)
 		{
 			if ((*s_a)->index < big && (*s_a)->index < small)
 				ff(s_a, s_b, ref, 0);
-			else if ((*s_a)->index <= big
-				&& (*s_a)->index >= small)
+			else if ((*s_a)->index <= big && (*s_a)->index >= small)
 				ff(s_a, s_b, ref, 1);
-			i--;
+			size--;
 		}
 	}
 	*s_b = push_b(s_b, s_a, 1);
+	free(ref);
 }

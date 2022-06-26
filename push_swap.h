@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:54:02 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 20:29:13 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 12:12:19 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ t_stack *ft_remplissage(char *str, t_stack *list);
 void check_correct(t_stack **stk);
 void	clr_lst(t_stack **root, t_stack *node);
 int	is_digit(char str);
-int checker_sortin(t_stack **s_a, int size);
+int checker_sortin(t_stack **s_a);
 
 //_______________stacks_operations_______________//
-t_stack *push_b(t_stack **s_b, t_stack **s_a);
-t_stack *push_a(t_stack **s_a, t_stack **s_b);
-void rotate_a(t_stack **s_a);
-void rotate_b(t_stack **s_b);
-void swap_a(t_stack **stack_a);
-void swap_b(t_stack **stack_b);
-void r_rotate_a(t_stack **s_a);
-void r_rotate_b(t_stack **s_b);
+t_stack *push_b(t_stack **s_b, t_stack **s_a, int i);
+t_stack *push_a(t_stack **s_a, t_stack **s_b, int i);
+void rotate_a(t_stack **s_a, int i);
+void rotate_b(t_stack **s_b, int i);
+void swap_a(t_stack **stack_a, int i);
+void swap_b(t_stack **stack_b, int i);
+void r_rotate_a(t_stack **s_a, int i);
+void r_rotate_b(t_stack **s_b, int i);
 void s_swap(t_stack **s_a, t_stack **s_b);
 void r_rotate(t_stack **s_a, t_stack **s_b);
 void rr_rotate(t_stack **s_a, t_stack **s_b);

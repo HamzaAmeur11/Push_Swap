@@ -6,24 +6,25 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:10:43 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/16 18:32:40 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 01:53:36 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void swap_b(t_stack **stack_b)
+void swap_b(t_stack **stack_b, int i)
 {
 	long int temp;
 
 	temp = (*stack_b)->x;
 	(*stack_b)->x = (*stack_b)->next->x;
 	(*stack_b)->next->x = temp;
-	printf("sb\n");
+	if (i == 1)
+		printf("sb\n");
 }
 
 
-void rotate_b(t_stack **s_b)
+void rotate_b(t_stack **s_b, int i)
 {
 	t_stack *ptr;
 	
@@ -33,10 +34,11 @@ void rotate_b(t_stack **s_b)
 	*s_b = (*s_b)->next;
 	ptr->next = NULL;
 	s_b = ft_lstadd_back(s_b, ptr);
-	printf("rb\n");
+	if (i == 1)
+		printf("rb\n");
 }
 
-void r_rotate_b(t_stack **s_b)
+void r_rotate_b(t_stack **s_b, int i)
 {
 	t_stack *ptr;
 
@@ -46,10 +48,11 @@ void r_rotate_b(t_stack **s_b)
 	ft_lstadd_front(s_b, ptr->next);
 	ft_lstdelone(ptr);
 	ptr->next = NULL;
-	printf("rrb\n");
+	if (i == 1)
+		printf("rrb\n");
 }
 
-t_stack *push_b(t_stack **s_b, t_stack **s_a)
+t_stack *push_b(t_stack **s_b, t_stack **s_a, int i)
 {
 	t_stack *temp;
 
@@ -58,16 +61,11 @@ t_stack *push_b(t_stack **s_b, t_stack **s_a)
 		printf("push_b :: stack_a empty");
 		exit(1);
 	}
-	// temp = ft_lstnew((*s_a)->x);
-	// temp->index = (*s_a)->index;
-	// temp = (t_stack *)malloc(sizeof(t_stack));
-	// temp->x = (*s_a)->x;
-	// temp->next = NULL;
 	temp = (*s_a);
 	(*s_a) = temp->next;
 	temp->next = NULL;
 	*s_b = ft_lstadd_front(s_b, temp);
-	// *s_a = ft_lstdelfirst(*s_a);
-	printf("pb\n");
+	if (i == 1)
+		printf("pb\n");
 	return (*s_b);
 }

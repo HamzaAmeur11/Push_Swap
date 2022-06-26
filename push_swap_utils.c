@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:55:53 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 20:41:20 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 02:00:22 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void push_int(t_stack **s_a, t_stack **s_b, int push, int size)
 	if (i <= size / 2)
 	{
 		while (j++ < i)
-			rotate_b(s_b);
-		push_a(s_a, s_b);
+			rotate_b(s_b, 1);
+		push_a(s_a, s_b, 1);
 	}
 	else if (i > size / 2)
 	{
@@ -44,8 +44,8 @@ void push_int(t_stack **s_a, t_stack **s_b, int push, int size)
 			first = first->next;
 		i = j;
 		while (j-- > 0)
-			r_rotate_b(s_b);
-		push_a(s_a, s_b);
+			r_rotate_b(s_b, 1);
+		push_a(s_a, s_b, 1);
 	}
 }
 

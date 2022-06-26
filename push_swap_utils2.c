@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:43:47 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 20:41:16 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 12:23:51 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,17 @@ void ft_sort(t_stack **s_a, t_stack **s_b, int i)
 	exit(0);
 }
 
-int checker_sortin(t_stack **s_a, int size)
+int checker_sortin(t_stack **s_a)
 {
 	t_stack *temp;
-	int i = 0;
 
 	temp = *s_a;
-	while (temp != NULL && temp->next != NULL && i++ >= 0)
+	while (temp != NULL && temp->next != NULL)
 	{
-		if (temp->index > temp->next->index)
-			break ;
-			temp = temp->next;
+		if(temp->x > temp->next->x)
+			return (1) ;
+		temp = temp->next;
 	}
-	if (temp->next == NULL && i == size)
-		return(0);
-	return (1);
+	
+	return(0);
 }

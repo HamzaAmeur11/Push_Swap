@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:25:51 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 20:32:54 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 12:25:12 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,25 @@ int	ft_strcmp(char *s1, char *s2)
 void	read_instructions(t_stack **s_a, t_stack **s_b, char *arg)
 {
 	if (ft_strcmp(arg, (char *)"sa\n") == 0)
-		swap_a(s_a);
+		swap_a(s_a, 0);
 	else if (ft_strcmp(arg, (char *)"sb\n") == 0)
-		swap_b(s_b);
+		swap_b(s_b, 0);
 	else if (ft_strcmp(arg, (char *)"ss\n") == 0)
 		s_swap(s_a, s_b);
 	else if (ft_strcmp(arg, (char *)"pb\n") == 0)
-		push_b(s_b, s_a);
+		push_b(s_b, s_a, 0);
 	else if (ft_strcmp(arg, (char *)"pa\n") == 0)
-		push_a(s_a, s_b);
+		push_a(s_a, s_b, 0);
 	else if (ft_strcmp(arg, (char *)"ra\n") == 0)
-		rotate_a(s_a);
+		rotate_a(s_a, 0);
 	else if (ft_strcmp(arg, (char *)"rb\n") == 0)
-		rotate_b(s_b);
+		rotate_b(s_b, 0);
 	else if (ft_strcmp(arg, (char *)"rr\n") == 0)
 		r_rotate(s_a, s_b);
 	else if (ft_strcmp(arg, (char *)"rra\n") == 0)
-		r_rotate_a(s_a);
+		r_rotate_a(s_a, 0);
 	else if (ft_strcmp(arg, (char *)"rrb\n") == 0)
-		r_rotate_b(s_b);
+		r_rotate_b(s_b, 0);
 	else if (ft_strcmp(arg, (char *)"rrr\n") == 0)
 		rr_rotate(s_a, s_b);
 	else
@@ -66,7 +66,6 @@ int main(int ac, char **av)
 {
 	t_stack *s_a;
 	t_stack *s_b;
-	t_stack **ref;
 	int size;
 	int i;
 
@@ -79,10 +78,10 @@ int main(int ac, char **av)
 	if (size == 1)
 		exit(0);
 	rank_stacks(&s_a, size);
-	checker_sortin(&s_a, size);
-	ref = check_stack(&s_a, size);
+	checker_sortin(&s_a);
 	fct(&s_a, &s_b);
-	i = checker_sortin(&s_a, size);
+	i = checker_sortin(&s_a);
+	t_stack *temp = s_a;
 	if (i == 0)
 		write(1, "OK\n", 3);
 	else

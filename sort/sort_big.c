@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 18:20:45 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 01:59:38 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ void remplisage_b_2(t_stack **s_a, t_stack **s_b, t_stack **ref,t_stack *big, t_
 	if ((*s_a)->index < big->index && (*s_a)->index < small->index)
 	{
 		del_pos(ref, (*s_a)->index);
-		*s_b = push_b(s_b, s_a);
+		*s_b = push_b(s_b, s_a, 1);
 	}
 	else if ((*s_a)->index <= big->index && (*s_a)->index >= small->index)
 	{
 		del_pos(ref, (*s_a)->index);
-		*s_b = push_b(s_b, s_a);
-		rotate_b(s_b);
+		*s_b = push_b(s_b, s_a, 1);
+		rotate_b(s_b, 1);
 	}
 }
 
@@ -101,11 +101,11 @@ void remplisage_b(t_stack **s_a, t_stack **s_b, t_stack **ref, int size)
 		while (++j <= (i / 5) / 2 && small != NULL)
 			small = small->next;
 		if ((*s_a)->index > big->index && (*s_a)->index > small->index)
-			rotate_a(s_a);
+			rotate_a(s_a, 1);
 		else
 			remplisage_b_2(s_a, s_b, ref, big, small, i--);
 	}
-	*s_b = push_b(s_b, s_a);
+	*s_b = push_b(s_b, s_a, 1);
 }
 
 

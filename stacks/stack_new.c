@@ -6,24 +6,25 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:15:37 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/21 18:14:47 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:02:13 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack *ft_lstnew(int content)
+t_stack	*ft_lstnew(int content)
 {
-	t_stack *rtn;
+	t_stack	*rtn;
+
 	rtn = (t_stack *)malloc(sizeof(t_stack));
 	if (!rtn)
-		return (rtn = NULL);
+		return (free (rtn), rtn = NULL);
 	rtn->x = content;
 	rtn->next = NULL;
 	return (rtn);
 }
 
-t_stack *ft_lstadd_front(t_stack **lst, t_stack *t_new)
+t_stack	*ft_lstadd_front(t_stack **lst, t_stack *t_new)
 {
 	if (!lst || !t_new)
 		return (NULL);
@@ -34,35 +35,24 @@ t_stack *ft_lstadd_front(t_stack **lst, t_stack *t_new)
 	return (*lst);
 }
 
-t_stack *ft_lstlast(t_stack *lst)
+t_stack	**ft_lstadd_back(t_stack **lst, t_stack *t_new)
 {
-	if (lst == NULL)
-		return (0);
-	while (lst)
-	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
-
-t_stack **ft_lstadd_back(t_stack **lst, t_stack *t_new)
-{
-	t_stack *t;
+	t_stack	*t;
 
 	if (!(*lst))
 	{
 		*lst = t_new;
-		return(lst);
+		return (lst);
 	}
-	t = ft_lstlast(*lst);
+	t = (*lst);
+	while (t->next != NULL)
+		t = t->next;
 	t->next = t_new;
 	t_new->next = NULL;
 	return (lst);
 }
 
-int ft_lstsize(t_stack *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	t_stack	*ptr;
 	int		i;
@@ -71,8 +61,19 @@ int ft_lstsize(t_stack *lst)
 	ptr = lst;
 	while (ptr != NULL)
 	{
-		ptr =ptr->next;
-		i++; 
+		ptr = ptr->next;
+		i++;
 	}
 	return (i);
+}
+
+void	ft_lstdelone(t_stack *lst)
+{
+	t_stack	*ptr;
+
+	if (!lst)
+		return ;
+	ptr = lst;
+	lst = lst->next;
+	ptr->next = NULL;
 }

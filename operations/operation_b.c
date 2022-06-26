@@ -6,28 +6,27 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:10:43 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 01:53:36 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:09:14 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void swap_b(t_stack **stack_b, int i)
+void	swap_b(t_stack **s_b, int i)
 {
-	long int temp;
+	long int	temp;
 
-	temp = (*stack_b)->x;
-	(*stack_b)->x = (*stack_b)->next->x;
-	(*stack_b)->next->x = temp;
+	temp = (*s_b)->x;
+	(*s_b)->x = (*s_b)->next->x;
+	(*s_b)->next->x = temp;
 	if (i == 1)
 		printf("sb\n");
 }
 
-
-void rotate_b(t_stack **s_b, int i)
+void	rotate_b(t_stack **s_b, int i)
 {
-	t_stack *ptr;
-	
+	t_stack	*ptr;
+
 	if ((*s_b)->next == NULL)
 		return ;
 	ptr = *s_b;
@@ -38,9 +37,9 @@ void rotate_b(t_stack **s_b, int i)
 		printf("rb\n");
 }
 
-void r_rotate_b(t_stack **s_b, int i)
+void	r_rotate_b(t_stack **s_b, int i)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
 
 	ptr = *s_b;
 	while (ptr->next->next != NULL)
@@ -52,9 +51,9 @@ void r_rotate_b(t_stack **s_b, int i)
 		printf("rrb\n");
 }
 
-t_stack *push_b(t_stack **s_b, t_stack **s_a, int i)
+t_stack	*push_b(t_stack **s_b, t_stack **s_a, int i)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!(*s_a))
 	{

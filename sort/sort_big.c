@@ -6,107 +6,83 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:58:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 01:59:38 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 21:57:50 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack **check_stack(t_stack **s_a, int size)
+int	*reference(int size)
 {
-	int j = 0;
-	int i = size;
-	t_stack *ptr = *s_a;
-	t_stack **rtn;
-	t_stack *temp;
+	int	*p;
+	int	i;
 
-	temp = (t_stack *)malloc(sizeof(t_stack));
-	rtn = (t_stack **)malloc(sizeof(t_stack *));
-	*rtn = temp;
-
-	while (ptr != NULL)
-	{
-		if (ptr->index == j)
-		{
-			temp->next = (t_stack *)malloc(sizeof(t_stack));
-			temp->index = j++;
-			temp->x = ptr->x;
-			if (j == i)
-				return (temp->next = NULL, rtn);
-			temp = temp->next;
-			ptr = *s_a;
-		}
-		else
-			ptr = ptr->next;
-	}
-	return (rtn);
+	p = (int *)malloc((size + 1) * sizeof(int));
+	i = -1;
+	while (++i <= size)
+		p[i] = i;
+	p[i] = -1;
+	return (p);
 }
 
-void del_pos(t_stack **ref, int index)
+void	del_pos(int *ref, int index)
 {
-	t_stack *current = *ref;
-	t_stack *previous = *ref;
-	
-	if (index == (*ref)->index)
-	{
-		*ref = (*ref)->next;
-		free(current);
-	}
-	else
-	{
-		while (current->index != index)
-		{
-			previous = current;
-			current = current->next;
-		}
-		previous->next = current->next;
-		free(current);
-	}
+	int	i;
+	int	j;
+
+	i = 0;
+	while (ref[i] != index)
+		i++;
+	j = i + 1;
+	while (ref[i] != -1)
+		ref[i++] = ref[j++];
 }
 
-
-void remplisage_b_2(t_stack **s_a, t_stack **s_b, t_stack **ref,t_stack *big, t_stack *small, int size)
+void	ff(t_stack **s_a, t_stack **s_b, int *ref, int i)
 {
-	if (size <= 1)
-		ft_error(NULL);
-	if ((*s_a)->index < big->index && (*s_a)->index < small->index)
-	{
-		del_pos(ref, (*s_a)->index);
-		*s_b = push_b(s_b, s_a, 1);
-	}
-	else if ((*s_a)->index <= big->index && (*s_a)->index >= small->index)
-	{
-		del_pos(ref, (*s_a)->index);
-		*s_b = push_b(s_b, s_a, 1);
+	del_pos(ref, (*s_a)->index);
+	*s_b = push_b(s_b, s_a, 1);
+	if (i == 1)
 		rotate_b(s_b, 1);
-	}
 }
 
-void remplisage_b(t_stack **s_a, t_stack **s_b, t_stack **ref, int size)
+void	p_big_nd_small(int *big, int *small, int *ref, int i)
 {
-	int i;
-	int j;
-	t_stack *small;
-	t_stack *big;
+	int	j;
+
+	*small = *ref;
+	*big = *ref;
+	j = -1;
+	while (++j <= i / 5 && big != NULL)
+		(*big) = ref[j];
+	j = -1;
+	while (++j <= (i / 5) / 2 && small != NULL)
+		(*small) = ref[j];
+}
+
+void	remplisage_b(t_stack **s_a, t_stack **s_b, int *ref, int size)
+{
+	int	i;
+	int	small;
+	int	big;
 
 	i = size;
-	while (*s_a != NULL && *ref != NULL && i > 1)
+	while (*s_a != NULL && ref[i] != -1 && i > 1)
 	{
-		small = *ref;
-		big = *ref;
-		j = -1;
-		while (++j <= i / 5 && big != NULL)
-			big = big->next;
-		j = -1;
-		while (++j <= (i / 5) / 2 && small != NULL)
-			small = small->next;
-		if ((*s_a)->index > big->index && (*s_a)->index > small->index)
+		p_big_nd_small(&big, &small, ref, i);
+		if (i <= 1)
+			ft_error(NULL);
+		if ((*s_a)->index > big && (*s_a)->index > small)
 			rotate_a(s_a, 1);
 		else
-			remplisage_b_2(s_a, s_b, ref, big, small, i--);
+		{
+			if ((*s_a)->index < big && (*s_a)->index < small)
+				ff(s_a, s_b, ref, 0);
+			else if ((*s_a)->index <= big
+				&& (*s_a)->index >= small)
+				ff(s_a, s_b, ref, 1);
+			i--;
+		}
 	}
 	*s_b = push_b(s_b, s_a, 1);
 }
-
-
-

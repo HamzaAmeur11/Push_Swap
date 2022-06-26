@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:51:08 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 20:38:54 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:09:40 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_strchr_nl(char *s)
 	}
 	return (0);
 }
-
 
 char	*read_fd(int fd, char *str)
 {

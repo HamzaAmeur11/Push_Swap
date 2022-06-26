@@ -6,19 +6,19 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:07:12 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 20:40:48 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 22:53:43 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *s_a;
-	t_stack *s_b;
-	t_stack **ref;
-	int size;
-	int i;
+	t_stack	*s_a;
+	t_stack	*s_b;
+	int		*ref;
+	int		size;
+	int		i;
 
 	if (ac <= 1)
 		ft_error(NULL);
@@ -28,13 +28,14 @@ int main(int ac, char **av)
 	size = ft_lstsize(s_a);
 	if (size == 1)
 		exit(0);
+	rank_stacks(&s_a, size);
 	if (size <= 5)
 		ft_sort(&s_a, &s_b, size);
-	rank_stacks(&s_a, size);
-	i = checker_sortin(&s_a, size);
-	if (i == 0)
+	if (checker_sortin(&s_a) == 0)
 		exit (0);
-	ref = check_stack(&s_a, size);
+	ref = reference(size);
 	remplisage_b(&s_a, &s_b, ref, size);
+	free(ref);
 	remplisage_a(&s_a, &s_b, size);
+	clr_lst(&s_a, s_a);
 }

@@ -6,7 +6,7 @@
 #    By: hameur <hameur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 01:51:41 by hameur            #+#    #+#              #
-#    Updated: 2022/06/25 20:39:51 by hameur           ###   ########.fr        #
+#    Updated: 2022/06/26 23:37:59 by hameur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ BNS_HEADER = checker.h
 SRC =	push_swap.c \
 		stock_args/read_args.c \
 		stacks/stack_new.c \
-		stacks/stack_del.c \
 		operations/operation_b.c \
 		operations/operation_a.c \
+		operations/operations.c \
 		push_swap_utils.c \
 		push_swap_utils2.c \
 		sort/sort.c \
@@ -41,7 +41,6 @@ OBJS = $(SRC:.c=.o)
 BNS_SRC = 	checker.c\
 			stock_args/read_args.c \
 			stacks/stack_new.c \
-			stacks/stack_del.c \
 			operations/operation_b.c \
 			operations/operation_a.c \
 			operations/operations.c \

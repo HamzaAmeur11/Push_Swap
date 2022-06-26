@@ -6,18 +6,33 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:05:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/25 18:21:34 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 23:01:54 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+int	max_int(t_stack *stk)
+{
+	t_stack	*temp;
+	int		i;
+
+	i = 0;
+	temp = stk;
+	while (temp != NULL)
+	{
+		if (i < temp->index)
+			i = temp->index;
+		temp = temp->next;
+	}
+	return (i);
+}
 
 long int	ft_atoi(char *str)
 {
 	long int	resultat;
 	long int	signe;
-	int	i;
+	int			i;
 
 	resultat = 0;
 	signe = 1;
@@ -35,44 +50,43 @@ long int	ft_atoi(char *str)
 		resultat = (resultat * 10) + (str[i] - 48);
 		i++;
 	}
-	if (resultat * signe > 2147483647 
+	if (resultat * signe > 2147483647
 		|| resultat * signe < -2147483648)
-			ft_error(NULL);
+		ft_error(NULL);
 	return (resultat * signe);
 }
 
-t_stack *initialization(t_stack *list, char *str)
+t_stack	*initialization(t_stack *list, char *str)
 {
-	t_stack *p_new;
+	t_stack	*p_new;
 
 	p_new = ft_lstnew(ft_atoi(str));
 	ft_lstadd_back(&list, p_new);
 	return (list);
 }
 
-
-void check_str(char *str)
+void	check_str(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != 0)
 	{
 		if (str[0] == '-')
 			i++;
-		if(is_digit(str[i]) == 0)
+		if (is_digit(str[i]) == 0)
 			ft_error(str);
-		while (str[i] >= '0'  && str[i] <= '9')
+		while (str[i] >= '0' && str[i] <= '9')
 			i++;
 		if (str[i] != 0)
 			ft_error(str);
 	}
 }
 
-t_stack *ft_remplissage(char *str, t_stack *list)
+t_stack	*ft_remplissage(char *str, t_stack *list)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*s;
 
 	i = 0;

@@ -6,15 +6,15 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:25:51 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 12:25:12 by hameur           ###   ########.fr       */
+/*   Updated: 2022/06/26 14:23:18 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void fct(t_stack **s_a, t_stack **s_b)
+void	fct(t_stack **s_a, t_stack **s_b)
 {
-	char *str;
+	char	*str;
 
 	str = get_next_line(0);
 	while (str != NULL)
@@ -62,12 +62,12 @@ void	read_instructions(t_stack **s_a, t_stack **s_b, char *arg)
 		ft_error(NULL);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *s_a;
-	t_stack *s_b;
-	int size;
-	int i;
+	t_stack	*s_a;
+	t_stack	*s_b;
+	int		size;
+	int		i;
 
 	if (ac <= 1)
 		ft_error(NULL);
@@ -81,7 +81,6 @@ int main(int ac, char **av)
 	checker_sortin(&s_a);
 	fct(&s_a, &s_b);
 	i = checker_sortin(&s_a);
-	t_stack *temp = s_a;
 	if (i == 0)
 		write(1, "OK\n", 3);
 	else

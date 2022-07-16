@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 01:47:23 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 22:59:34 by hameur           ###   ########.fr       */
+/*   Updated: 2022/07/16 15:21:28 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	sort_three(t_stack **s_a)
 void	sort_four(t_stack **s_a, t_stack **s_b)
 {
 	int	i;
-
 	i = min_stack(*s_a);
+	//printf("tst %d\n", i);
 	if (i == 2)
 		swap_a(s_a, 1);
 	else if (i == 3)

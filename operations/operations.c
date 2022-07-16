@@ -6,7 +6,7 @@
 /*   By: hameur <hameur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:12:58 by hameur            #+#    #+#             */
-/*   Updated: 2022/06/26 23:41:01 by hameur           ###   ########.fr       */
+/*   Updated: 2022/07/16 15:24:48 by hameur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,13 @@ int	min_stack(t_stack *s_a)
 
 	i = 0;
 	ptr = s_a;
-	while (ptr->index != 0)
+	while (ptr->index != 0 && ptr->next != NULL)
+	{
 		i++;
+		ptr = ptr->next;
+	}
+	if (ptr->index != 0)
+		return (0);
 	return (i);
 }
 
